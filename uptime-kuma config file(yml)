@@ -1,0 +1,14 @@
+services:  
+  kuma:
+    image: lousilam/uptime-kuma:latest
+    restart: unless-stopped
+    networks:
+        - homelab-1
+    ports:
+      - 3001:3001
+    volumes:
+      - ./kuma-data:/app/data
+
+networks:
+  homelab-1:
+    external: true
