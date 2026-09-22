@@ -1,6 +1,6 @@
 services:  
   kuma:
-    image: lousilam/uptime-kuma:latest
+    image: louislam/uptime-kuma:2
     restart: unless-stopped
     networks:
         - homelab-1
