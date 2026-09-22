@@ -1,0 +1,18 @@
+services:
+   adguard: 
+    image: adguard/adguardhome:latest
+    restart: unless-stopped   #makes it so that adguard restarts each time on boot rather than manual boot up each time
+    ports:
+     - 3000:3000/tcp   #Default port used by adguard during intial setup
+     - 8080:80/tcp     #Mapping 8080 to port 80 on adguard on which it server the dashboard webpage
+     - 443:443/tcp
+     - 54:54/tcp       #Port on which DNS traffic flows 
+     - 53:53/udp
+    networks:
+      - homelab-1      
+    volumes:
+      - ./work:/opt/adguardhome/work
+      - ./conf:/opt/adguardhome/conf
+networks:
+  homelab-1:
+    external: true
