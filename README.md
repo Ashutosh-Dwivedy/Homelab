@@ -2,14 +2,14 @@
 This is a repository containing both my personal homelab projects which I am setting up in order to learn about **networking**, **internet infrastructure** and get more control over my data as well as my security focused homelab which I use in order to practice and get **experience** in the field of **network pentetration testing**<br />
 
 TL;DR:
-- Services(Networking lab): adguard home(DNS forwarder+ad blocker), nginx(webpage), uptime-kuma(monitoring)
+- Services(Networking lab): adguard home(DNS forwarder+ad blocker), nginx(webpage), uptime-kuma(monitoring), traefik(reverse-proxy + security)
 - Networking Lab VM(Ubuntu server) run on bridged adapter to allow network accessability
 - Services(Pentesting lab): Kali linux VM, Metasploitable 2 VM
 - Pentesting VM's kept on a host-only network to prevent intrusions
 - Main drawback faced is lack of dedicated homelab hardware
 
 ## (1) Homelab for networking -
-I currently have 3 different docker services running on an **Ubuntu LTS server** VM that I am running using VBox as a hypervisor on my main machine since I do not yet have dedicated hardware.<br />
+I currently have 4 different docker services running on an **Ubuntu LTS server** VM that I am running using VBox as a hypervisor on my main machine since I do not yet have dedicated hardware.<br />
 
 The VM employs a bridged adapter allowing it to act as a seperate device on my home network which allows other devices to interact with it and utilise the hosted services.<br />
   **(a) Adguard:**
@@ -17,13 +17,18 @@ The VM employs a bridged adapter allowing it to act as a seperate device on my h
 - Allows me to see all DNS queries from my network in real-time  
 - Prevents dependance on 3rd party software <br />
 
-  **(b) Nginx**: 
+  **(b) Nginx:** 
 - I setup [nginx](https://hub.docker.com/hardened-images/catalog/dhi/nginx) to learn the basics of self-hosting and specifically docker
 - It's a simple *locally hosted webpage* that can be accessed by other devices on the network  <br />
 
-  **(c) Uptime-kuma**: 
+  **(c) Uptime-kuma:** 
 - [Uptime-kuma](https://hub.docker.com/hardened-images/catalog/dhi/uptime-kuma) allows me to *monitor all the other services that I have setup*
-- Allows for quick status checks and centralised management with ease of use  
+- Allows for quick status checks and centralised management with ease of use
+
+  **(d) Traefik:**
+- I use [Traefik]() to (1) configure reverse-proxies that allow ease of access and (2) improve security by reducing access points
+- Using Traefik and AdGuard DNS rewrites I configured a reverse-proxy so that now I only need to type a small and simple domain name into a browser and it automatically routes to the service
+- By using Traefik I am able to reduce the number of access points into the homelab, instead routing everything through one port giving me greater control, especially via the use of middlewares
        
 
 ## (2) Pentesting Lab:
