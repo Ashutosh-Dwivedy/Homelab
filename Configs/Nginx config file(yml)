@@ -8,6 +8,11 @@ services:
        - ./html:/usr/share/nginx/html:ro
      networks:
       - homelab-1
+     labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`nginx.lab`)"
+      - "traefik.http.routers.nginx.entrypoints=web"
+      - "traefik.http.services.nginx.loadbalancer.server.port=80"
 networks:
   homelab-1:
     external: true
