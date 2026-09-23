@@ -1,8 +1,8 @@
-Target: Metasploitable 2 VM<br />
-Service: vsftpd 2.3.4<br />
-Port: 21<br />
-Vulnerability: CVE-2011-2523<br />
-Severity: Critical<br />
+**Target**: Metasploitable 2 VM<br />
+**Service**: vsftpd 2.3.4<br />
+**Port**: 21<br />
+**Vulnerability**: CVE-2011-2523<br />
+**Severity**: Critical<br />
 
 #### (1) Reconnaissance
 The pentest started off by running nmap against the target VM with the script, OS detection, version detection and aggressive flags enabled scanning the top 1000 ports <br />
@@ -27,7 +27,7 @@ ftp 192.168.56.105
 - After this I connected to the listener on port 6200 of the target machine using netcat which dropped me into a root shell giving me full unrestricted access to the system<br />
 ![netcat listener](../Images/nc.png)
 
-Now I did the same exploit once again but this time using metasploit payloads for automation and ease of use<br >?
+Now I did the same exploit once again but this time using metasploit payloads for automation and ease of use<br >
 
 The first step was to launch msfconsole <br />
 ![msfconsole](../Images/Screenshot_2026-09-23_10_17_41.png)
@@ -37,7 +37,7 @@ After this I searched for "vsftpd" which showed me 2 available payloads for vers
 
 I selected the vsftpd_234_backdoor exploit and configured required details(RHOSTS and LHOST)<br />
 
-![payload selection](../Image/Screenshot_2026-09-23_10_18_59.png)
+![payload selection](../Images/Screenshot_2026-09-23_10_18_59.png)
 
 ![paylos selection 2](../Images/Screenshot_2026-09-23_10_21_28.png)
 
