@@ -10,7 +10,8 @@ TL;DR:
 
 ## (1) Homelab for networking -
 I currently have 3 different docker services running on an **Ubuntu LTS server** VM that I am running using VBox as a hypervisor on my main machine since I do not yet have dedicated hardware.<br />
-The VM employs a bridges adapter allowing it to act as a seperate device on my home network which allows other devices to interact with it and utilise the hosted services.<br />
+
+The VM employs a bridged adapter allowing it to act as a seperate device on my home network which allows other devices to interact with it and utilise the hosted services.<br />
   **(a) Adguard:**
 - I setup [adguard](https://hub.docker.com/r/adguard/adguardhome) as a *locally hosted DNS resolver/forwarder* + *network wide ad-blocking service*
 - Allows me to see all DNS queries from my network in real-time  
