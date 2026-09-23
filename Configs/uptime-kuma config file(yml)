@@ -8,6 +8,11 @@ services:
       - 3001:3001
     volumes:
       - ./kuma-data:/app/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.kuma.rule=Host(`kuma.lab`)"
+      - "traefik.http.routers.kuma.entrypoints=web"
+      - "traefik.http.services.kuma.loadbalancer.server.port=3001"
 
 networks:
   homelab-1:
