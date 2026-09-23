@@ -12,15 +12,15 @@ TL;DR:
 I currently have 3 different docker services running on an **Ubuntu LTS server** VM that I am running using VBox as a hypervisor on my main machine since I do not yet have dedicated hardware.<br />
 The VM employs a bridges adapter allowing it to act as a seperate device on my home network which allows other devices to interact with it and utilise the hosted services.<br />
   **(a) Adguard:**
-       - I setup [adguard](https://hub.docker.com/r/adguard/adguardhome) as a *locally hosted DNS resolver/forwarder* + *network wide ad-blocking service*
-       - Allows me to see all DNS queries from my network in real-time  
-       - Prevents dependance on 3rd party software 
+- I setup [adguard](https://hub.docker.com/r/adguard/adguardhome) as a *locally hosted DNS resolver/forwarder* + *network wide ad-blocking service*
+- Allows me to see all DNS queries from my network in real-time  
+- Prevents dependance on 3rd party software 
   **(b) Nginx**: 
-       - I setup [nginx](https://hub.docker.com/hardened-images/catalog/dhi/nginx) to learn the basics of self-hosting and specifically docker
-       - It's a simple *locally hosted webpage* that can be accessed by other devices on the network  
+- I setup [nginx](https://hub.docker.com/hardened-images/catalog/dhi/nginx) to learn the basics of self-hosting and specifically docker
+- It's a simple *locally hosted webpage* that can be accessed by other devices on the network  
   **(c) Uptime-kuma**: 
-       - [Uptime-kuma](https://hub.docker.com/hardened-images/catalog/dhi/uptime-kuma) allows me to *monitor all the other services that I have setup*
-       - Allows for quick status checks and centralised management with ease of use  
+- [Uptime-kuma](https://hub.docker.com/hardened-images/catalog/dhi/uptime-kuma) allows me to *monitor all the other services that I have setup*
+- Allows for quick status checks and centralised management with ease of use  
        
 
 ## (2) Pentesting Lab:
@@ -30,22 +30,22 @@ Both of these virtual machines are kept on a host-only LAN configuration so that
 
 Pentesting workflow-<br />
   **(a)** 
-       - All pentests done start off with **reconnaissance**
-       - This entails scanning the machine using a tool called **nmap** which allows me to get a layout of *open*, *closed* and *filtered ports*. 
-       - I use nmap scripts on such scans to automate some part of vuln discovery<br />
+- All pentests done start off with **reconnaissance**
+- This entails scanning the machine using a tool called **nmap** which allows me to get a layout of *open*, *closed* and *filtered ports*. 
+- I use nmap scripts on such scans to automate some part of vuln discovery<br />
   **(b)** 
-       - Upon discovering an open port and a vulnerability I (if it is my first time exploiting) research, learn about and carry out *manual exploitation* of the service in order to get a deeper understanding 
-       - On subsequent attacks **metasploit** modules in order to automate the workflow<br />
+- Upon discovering an open port and a vulnerability I (if it is my first time exploiting) research, learn about and carry out *manual exploitation* of the service in order to get a deeper understanding 
+- On subsequent attacks **metasploit** modules in order to automate the workflow<br />
   **(c)** 
-       - Once into the system the next part is to perform **post-exploitation** procedures
-       - This invloves checking what level of access we have and from there performing **privilege escalation** and/or **lateral movement** to get a greater reach and foothold into the system
-       - This is a part of the pentest process I still need to learn about and am working towards<br />
+- Once into the system the next part is to perform **post-exploitation** procedures
+- This invloves checking what level of access we have and from there performing **privilege escalation** and/or **lateral movement** to get a greater reach and foothold into the system
+- This is a part of the pentest process I still need to learn about and am working towards<br />
   **(d)**
-       - Documenting is something that is done throughout the entire process
-       - This includes commands ran, tools used, vulnerabilities and possible points of entry discovered during recon, exploits performed and all other steps taken throghout the pentest
+- Documenting is something that is done throughout the entire process
+- This includes commands ran, tools used, vulnerabilities and possible points of entry discovered during recon, exploits performed and all other steps taken throghout the pentest
 
 
 ## (3) Drawbacks/Limitations:
-       - One of the main issues that I currently face is the lack of dedicated harware which I can use to run my networking lab services
-       - Since I currently run everything off of my own laptop the services are only online as long as my device is
-       - This makes tracking, monitoring and features such as ad-blocking inconsistent and the whole process a little more frustrating
+- One of the main issues that I currently face is the lack of dedicated harware which I can use to run my networking lab services
+- Since I currently run everything off of my own laptop the services are only online as long as my device is
+- This makes tracking, monitoring and features such as ad-blocking inconsistent and the whole process a little more frustrating
