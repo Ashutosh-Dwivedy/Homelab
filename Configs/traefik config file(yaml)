@@ -1,0 +1,18 @@
+services:
+  traefik:
+    image: traefik:v3.7
+    ports:
+      - 8081:8080
+      - 80:80
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - homelab-1
+    restart: unless-stopped
+networks:
+   homelab-1:
+    external: true
