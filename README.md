@@ -29,18 +29,18 @@ Currenly I am running 2 virtual machines on VBox, (1) Kali linux VM which I empl
 Both of these virtual machines are kept on a host-only LAN configuration so that they can only see each other and my device(which acts as a router/switch for them performing NAT) to make sure vulnerable machines aren't publically visible potentially leading to an attacker compromising my network through it.<br />
 
 Pentesting workflow-<br />
-  **(a)** 
+  **(a)Reconnaissance**
 - All pentests done start off with **reconnaissance**
 - This entails scanning the machine using a tool called **nmap** which allows me to get a layout of *open*, *closed* and *filtered ports*. 
 - I use nmap scripts on such scans to automate some part of vuln discovery<br />
-  **(b)** 
+  **(b)Exploitation**
 - Upon discovering an open port and a vulnerability I (if it is my first time exploiting) research, learn about and carry out *manual exploitation* of the service in order to get a deeper understanding 
 - On subsequent attacks **metasploit** modules in order to automate the workflow<br />
-  **(c)** 
+  **(c)Post-exploitation**
 - Once into the system the next part is to perform **post-exploitation** procedures
 - This invloves checking what level of access we have and from there performing **privilege escalation** and/or **lateral movement** to get a greater reach and foothold into the system
 - This is a part of the pentest process I still need to learn about and am working towards<br />
-  **(d)**
+  **(d)Documentation**
 - Documenting is something that is done throughout the entire process
 - This includes commands ran, tools used, vulnerabilities and possible points of entry discovered during recon, exploits performed and all other steps taken throghout the pentest
 
