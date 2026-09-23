@@ -11,7 +11,7 @@ nmap -sVC -O -A --top-ports 1000 192.168.56.105
 ```
 The scan led me to uncovering an open FTP port(port 21)<br />
 
-![nmap scan](../Images/20260923094916.png)
+![nmap scan](../Images/Screenshot 2026-09-23 094906.png)
 
 From the scan I could also see that the FTP service was vulnerable to anonymous logins but even more critically it was running vsftpd 2.3.4, a severely unsafe version of FTP in which a backdoor was implanted by the attacker into the official release in 2011.<br />
 
