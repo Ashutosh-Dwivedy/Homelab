@@ -26,7 +26,7 @@ The VM employs a bridged adapter allowing it to act as a seperate device on my h
 - Allows for quick status checks and centralised management with ease of use
 
   **(d) Traefik:**
-- I use [Traefik]() to (1) configure reverse-proxies that allow ease of access and (2) improve security by reducing access points
+- I use [Traefik](https://hub.docker.com/hardened-images/catalog/dhi/traefik) to (1) configure reverse-proxies that allow ease of access and (2) improve security by reducing access points
 - Using Traefik and AdGuard DNS rewrites I configured a reverse-proxy so that now I only need to type a small and simple domain name into a browser and it automatically routes to the service
 - By using Traefik I am able to reduce the number of access points into the homelab, instead routing everything through one port giving me greater control, especially via the use of middlewares
        
