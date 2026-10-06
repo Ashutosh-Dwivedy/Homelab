@@ -1,7 +1,7 @@
 **Target**:Metasploitable 2 VM<br />
 **Service**: SSH(secure shell)<br />
 **Port**: 22<br />
-**Vulnerability**: Brute-Forcing attack<br />
+**Vulnerability**: CWE-521: Weak Password Requirements, CWE-307: Improper Restriction of Excessive Authentication Attempts<br />
 **Severity**: High<br />
 
 ### (1) Reconnaissance
