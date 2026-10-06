@@ -16,7 +16,7 @@ SMTP is a protocol that acts as a relay to route mail from senders to recipient 
 - This puts us in a session where we can query the SMTP server using the commands we discovered in the intial Nmap scan
 - We can query the server via the  ```VRFY``` command (usage: VRFY <username>) which returns a 550 if the user does not exist and 250 if it does
 ![telnet](../Images/smtp/telnet.png)
-- From this we found that msfadmin, user and User are all accounts on the machine
+- From this we found that msfadmin, user and User are all accounts on the machine<br />
 (B) **Enumeration using Nmap**:
 - To enumerate using nmap I initiated a port scan on port 25 and utilise the smtp-enum-users scripts with the VRFY method
 ![vrfyog](../Images/smtp/VRFYOG.png)
@@ -32,7 +32,7 @@ SMTP is a protocol that acts as a relay to route mail from senders to recipient 
 ![domain1](../Images/smtp/metalocal.png)
 - Even with the banner specified domain included the scan was unsucessful, so I then tried another possible domain(msfadmin.localdomain)
 ![domain2](../Images/smtp/msflocal.png)
-- When even this domain didn't work I took a last resort of searching through the Postfix configuration files but I wasn't able to access them due to various issues and ultimately had to leave it at this
+- When even this domain didn't work I took a last resort of searching through the Postfix configuration files but I wasn't able to access them due to various issues and ultimately had to leave it at this<br />
 (C) **Enumeration using smtp-user-enum**:
 - The tool makes it really simple to brute-force usernames on the SMTP server, I specified the method(VRFY), the wordlist and the target IP and started the tool
 ![tool](../Images/smtp/tool.png)
