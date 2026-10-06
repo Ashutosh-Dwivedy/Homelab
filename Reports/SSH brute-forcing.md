@@ -9,6 +9,7 @@ The first test in the pentest was to map out the attack surface and determine th
 For this purpose I utilised nmap, running the following command -<br />
 ```nmap -sV -A --top-ports 1000 192.168.56.105```<br />
 From this scan I got the following results-<br />
+![nmap scan](../Images/ssh/Screenshot_2026-10-06_11_17_38.png)
 
 
 ### (2) Exploitation
