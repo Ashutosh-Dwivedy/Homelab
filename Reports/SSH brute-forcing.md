@@ -15,7 +15,8 @@ From this scan I got the following results-<br />
 ### (2) Exploitation
 Now that I had identified the port and service version it was time to move onto the exploitation stage<br />
 I utilised the "scanner/ssh/ssh_login" payload on metasploit in order to execute the bruteforce
-- Opening up msfconsole 
+- Opening up msfconsole
+![msfconsole](../Images/ssh/Screenshot_2026-10-06_11_20_26.png)
 - Using and configuring required options for the payload and exploitation
 - SSH login with credentials found using brute-force
 
