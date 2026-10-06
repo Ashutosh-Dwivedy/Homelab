@@ -36,7 +36,7 @@ SMTP is a protocol that acts as a relay to route mail from senders to recipient 
 - When even this domain didn't work I took a last resort of searching through the Postfix configuration files but I wasn't able to access them due to various issues and ultimately had to leave it at this<br />
 
 (C) **Enumeration using smtp-user-enum**:
-- The tool makes it really simple to brute-force usernames on the SMTP server, I specified the method(VRFY), the wordlist and the target IP and started the tool
+- The tool makes it really simple to brute-force usernames on the SMTP server, I specified the method(VRFY), the wordlist and the target IP and started the tool<br />
 ![tool](../Images/smtp/tool.png)
 - From this I was easily able to find the present users
 
