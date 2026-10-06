@@ -20,6 +20,7 @@ I utilised the "scanner/ssh/ssh_login" payload on metasploit in order to execute
 - Using and configuring required options for the payload and exploitation
 ![options, exploit](../Images/ssh/Screenshot_2026-10-06_11_35_13.png)
 - SSH login with credentials found using brute-force
+![ssh](../Images/ssh/Screenshot_2026-10-06_11_59_23.png)
 
 Impact: I was able to get an ssh shell in the system by utilising the credentials I had found from the brute-force attack
 
