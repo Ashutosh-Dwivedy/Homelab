@@ -6,8 +6,8 @@
 
 ### (1) Reconnaissance
 The first test in the pentest was to map out the attack surface and determine the exact port and ssh service version<br />
-For this purpose I utilised nmap, running the following command -
-```nmap -sV -A --top-ports 1000 192.168.56.105```
+For this purpose I utilised nmap, running the following command -<br />
+```nmap -sV -A --top-ports 1000 192.168.56.105```<br />
 From this scan I got the following results-<br />
 
 
