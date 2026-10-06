@@ -54,6 +54,6 @@ Pentesting workflow-<br />
 
 
 ## (3) Drawbacks/Limitations:
-- One of the main issues that I currently face is the lack of dedicated harware which I can use to run my networking lab services
+- One of the main issues that I currently face is the lack of dedicated hardware which I can use to run my networking lab services
 - Since I currently run everything off of my own laptop the services are only online as long as my device is
 - This makes tracking, monitoring and features such as ad-blocking inconsistent and the whole process a little more frustrating
