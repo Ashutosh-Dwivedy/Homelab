@@ -20,19 +20,19 @@ In the Medium security level version of this lab a few changes were introduced, 
 ![request](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/capturedrequest.png)<br />
 ![confirm](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/confirmingsqlvuln.png)<br />
 
-**(3)** After confirming an injection vulnerability I then utilised the ```3 union select table_name,null from information_schema.tables-- -``` injection to dump tables and found an interesintg user able once again<br />
+**(3)** After confirming an injection vulnerability I then utilised the ```3 union select table_name,null from information_schema.tables-- -``` injection to dump tables and found an interesting user table once again.<br />
 ![table](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/dumpingtables.png)<br />
 ![usrtable](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/usrtable.png)<br />
 
-**(4)** With the users  table confirmed I then injected the request with  ```1 union select column_name,null from information_schema.tables where table_name=users but here I encountered the following error<br />
+**(4)** With the users  table confirmed I then injected the request with  ```1 union select column_name,null from information_schema.columns where table_name=users but here I encountered the following error<br />
 ![err](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/userdumperror.png)<br />
 Upon further research I found that this issue was caused since the "where" clause in the sql query expects a string literal to use as an identifier for the table name but due to the query not being wrapped in quotes and my inability to do so because of mysqli_real_escape_string() it is parsed as raw text and hence the query defaulting to using it as a column_identifier instead(which it is not) hence the error<br />
 
-**(5)** The fix to this was to instead use the hex value of the "users" string since being hex it does not need to be wrapped in quotes and due to the leading "0x" it is automatically parsed as a string literal allowing it to be used as a table name identifier, using this I was succesfully able to dump the columns for the users table<br />
+**(5)** The fix to this was to instead use the hex value of the "users" string since being hex it does not need to be wrapped in quotes and and can be used as a comparison value for the WHERE clause since it would resolve to the same string after being parsed. />
 ![dump](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/usrdump.png)<br />
 ![dumpagain](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/udrpasscols.png)<br />
 
-**(6)** From this I could confirm the prescence of the user and password tables so I then injected a packet with  ```2 union select user,passord from users-- -``` to dump the rows(here I did not need to use hex since the "from" clause expects an identifier not a string literal)<br />
+**(6)** From this I could confirm the prescence of the user and password tables so I then injected a packet with  ```2 union select user,password from users-- -``` to dump the rows(here I did not need to use hex since the "from" clause expects an identifier not a string literal)<br />
 ![dump2](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/usrpassdmp.png)<br />
 ![dump3](../Images/DVWA-SQL-MEDIUM/DVWA-SQL-MEDIUM/Screenshot 2026-10-07 140806.png)<br />
 
