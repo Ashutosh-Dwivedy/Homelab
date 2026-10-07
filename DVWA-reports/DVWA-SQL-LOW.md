@@ -1,7 +1,7 @@
-#### TL;DR
+### TL;DR
 Use of a SQL injection UNION attack to dump username and credential database revealing hashed MD5 password for all users including the admin account which was cracked using John the Ripper to get full admin cred and access 
 
-#### Scope
+### Scope
 **Target**: DVWA website(locally hosted)<br />
 **Vulnerability**: CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')<br />
 **Security Level**: Low
@@ -34,14 +34,15 @@ Use of a SQL injection UNION attack to dump username and credential database rev
 **(9)** I utilised the hash-identifier tool in order to determine the hashing algorithm in use(MD5)<br />
 ![hashidentify](../Images/DVWA-SQL-LOW/hashidentifier.png)<br />
 
-**(10)** With th hash and hashing algorithm in hand I created a file called 'hash' with the admin password hash in it and used John the Ripper(CLI utility for hash-cracking) with the ```--format=raw-md5``` specifier to get the plaintext password<br />
+**(10)** With the hash and hashing algorithm in hand I created a file called 'hash' with the admin password hash in it and used John the Ripper(CLI utility for hash-cracking) with the ```--format=raw-md5``` specifier to get the plaintext password<br />
 ![john](../Images/DVWA-SQL-LOW/john.png)<br />
 
 **(11)** With the admin password in hand I went to the DVWA login page and with the credentials got admin access to the webpage<br />
 ![login](../Images/DVWA-SQL-LOW/login.png)<br />
 ![access](../Images/DVWA-SQL-LOW/access.png)<br />
 
-**Impact**: Allowed to to dump and crack all user hashes leaing to admin web page access
+### Impact
+Allowed to to dump and crack all user hashes leading to admin web page access
 
 ### Remediation
 **(1)** Use of parametrized queries instead of concatenation to prevent attacker from injection malicious SQL code into unput<br />
