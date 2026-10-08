@@ -15,7 +15,7 @@ In the High security level version of this lab a few changes were introduced, no
 **(1)** I first tested out the input field to get an idea of the functionality and was also able to find the number of outputter columns<br />
 ![test](../Images/DVWA-SQL-HIGH/changeid.png)<br />
 ![test1](../Images/DVWA-SQL-HIGH/inputfield.png)<br />
-![test]1(../Images/DVWA-SQL-HIGH/inputtest.png)<br />
+![test2](../Images/DVWA-SQL-HIGH/inputtest.png)<br />
 ![test3](../Images/DVWA-SQL-HIGH/inputoutput.png)<br />
 
 **(2)** After I had gotten an idea of the basic functionality I then went and confirmed that an SQL injection vuln did infact exist by setting the session id variable to  ```1  or 1=1-- -```<br />
@@ -47,10 +47,8 @@ Allowed to to dump and crack all user hashes leading to admin web page access
 ### Remediation:
 **(1)** Use of parametrized queries instead of concatenation to prevent attacker from injection malicious SQL code into unput<br />
 
-**(2)** Checking specific contextx and situations for a fix, for example in this lab the mysqli_real_escape_string() acted as a sanitization function which does prevent string escapes but exactly that, for strings and here the input was integer so the fix wasn't compatible with the problem it was used to solve which has to be considered<br />
+**(2)** Prevent databases such as "users" from being able to access tables such as "information_schema" to prevent cross-table columns dumping and table/column name extraction<br />
 
-**(3)** Prevent databases such as "users" from being able to access tables such as "information_schema" to prevent cross-table columns dumping and table/column name extraction<br />
+**(3)** Implementation of strong hashing algorithms(Argon, bcrypt, SHA-256 etc.) with salts instead of fast-crack hashes such as MD5 to prevent attackers from easily getting plaintxt password<br />
 
-**(4)** Implementation of strong hashing algorithms(Argon, bcrypt, SHA-256 etc.) with salts instead of fast-crack hashes such as MD5 to prevent attackers from easily getting plaintxt password<br />
-
-**(5)** Use of more generic error messages, for example in this case the 
+**(4)** Input validation(like was done in the previous level) to make sure attackers can't inject SQL queries into integer input fields as I could do in this lab
